@@ -133,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 76669c6e0b22e1443af80fd13fbb0186, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.231
+      value: 1.19
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 76669c6e0b22e1443af80fd13fbb0186, type: 3}
       propertyPath: m_LocalPosition.z
@@ -219,9 +219,6 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 5681759399020757177, guid: 76669c6e0b22e1443af80fd13fbb0186, type: 3}
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 76669c6e0b22e1443af80fd13fbb0186, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 688523071}
     - targetCorrespondingSourceObject: {fileID: 2339830491071324485, guid: 76669c6e0b22e1443af80fd13fbb0186, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1877269301}
@@ -399,11 +396,11 @@ Transform:
   m_GameObject: {fileID: 688523068}
   serializedVersion: 2
   m_LocalRotation: {x: 0.28301108, y: -0, z: -0, w: 0.95911664}
-  m_LocalPosition: {x: 0, y: 4.919, z: -3.11}
+  m_LocalPosition: {x: 0, y: 5, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1541757330}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 32.88, y: 0, z: 0}
 --- !u!114 &688523072
 MonoBehaviour:
@@ -730,13 +727,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f44a3868dac5dd4ab495defde955287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovePlayer
-  walkSpeed: 10
+  mainCamera: {fileID: 688523068}
+  walkSpeed: 7
   leftRightS: 5
---- !u!4 &1541757330 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 76669c6e0b22e1443af80fd13fbb0186, type: 3}
-  m_PrefabInstance: {fileID: 648920083}
-  m_PrefabAsset: {fileID: 0}
 --- !u!65 &1541757331
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -783,7 +776,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &1541757333
 BoxCollider:
@@ -1110,6 +1103,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1959260451}
+  - {fileID: 688523071}
   - {fileID: 648920083}
   - {fileID: 1553721097}
   - {fileID: 678524379}
