@@ -1,40 +1,61 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
 public class Surveillance : MonoBehaviour
 {
-	[SerializeField] private GameObject Face; // 監視の顔の画像
-	[SerializeField] private GameObject Yellow; // 黄色の注意画像
-	[SerializeField] private GameObject Red; // 赤色の警告画像
-	[SerializeField] private float interval = 3.0f; // 注視間隔
-	[SerializeField] private float flashSpeed = 0.4f; // 点滅時間（黄）（四回繰り返す、計：1.6f）
-	[SerializeField] private float minAlpha = 20.0f; // 最小の透明度
-	[SerializeField] private float maxAlpha = 60.0f; // 最大の透明度
-	[SerializeField] private float warnung = 1.0f; // 警告時間(赤＋顔)
+	[SerializeField] private GameObject Caution; // 注意画面
+	[SerializeField] private Image CautionImage; // 注意画像
+	[SerializeField] private GameObject Warning; // 警告画面
+
+	[SerializeField] private float interval = 5.0f; // 注視間隔
+	[SerializeField] private float caution = 10f; // 注意時間
+	[SerializeField] private float flashSpeed = 0.4f; // 点滅の速さ
+	[SerializeField] private float warning = 1.0f; // 警告時間
 	[SerializeField] bool watch = false; // 監視が注視しているかどうか
 
-	private float timer1 = 0; // タイマー
-	private float timer2 = 0; // タイマー2
 
-	private void Start()
+	private float safeTimer = 0f; // 安全時間用タイマー
+	private float cautionTimer = 0f; // 注意時間用タイマー
+	private float warningTimer = 0f; // 警告時間用タイマー
+	private float colorTimer = 0f;
+
+	void Update()
 	{
-		float rand = Random.Range(0f, 4.0f); // 0～4までのランダム値
-	}
+		colorTimer++;
+		//var alpha = Mathf.Cos((float)(2 * Mathf.PI * colorTimer / flashSpeed)) * 0.5f + 0.5f;
+		Color color = CautionImage.color; // 注意画像の色
+		color.a = Mathf.Abs(Mathf.Sin(Time.time * flashSpeed)) - 0.4f; // alpha値の変化
+		float rand = Random.Range(0f, 5.0f); // ランダム値
 
-	private void Update()
-	{
-		float wave = (Mathf.Sin(Time.time * flashSpeed) +1.0f);
-		//Yellow.alpha = Mathf.Lerp(minAlpha, maxAlpha, wave);
+		safeTimer++; // 安全時間カウント
+		if (safeTimer >= (interval + rand) * 60)
+		{   // 注意画面の点滅
+			Caution.SetActive(true);
+		
+			//var color = CautionImage.color;
+			//color.a = alpha;
+			CautionImage.color = color;
 
-		timer1++; // タイマーの増加
-		if (timer1 >= interval * 60)
-		{
-			Yellow.SetActive(true);
-			//timer2++;
-			//if (timer2 >= flash)
-			//{
-
-			//}
 		}
-
+			
+			cautionTimer++; // 注意時間カウント
+			if (cautionTimer >= caution * 60)
+			{
+				Caution.SetActive(false); // 注意画面非表示
+				Warning.SetActive(true); // 警告画面表示
+				watch = true; // 注視中
+				warningTimer++; // 警告時間カウント
+				if (warningTimer >= warning * 60)
+				{
+					watch = false; // 注視解除
+					Warning.SetActive(false); // 警告画面非表示
+					safeTimer = 0f; // タイマーのリセット
+					//cautionTimer = 0f;
+					warningTimer = 0f;
+				}
+			}
+		
 	}
 }
