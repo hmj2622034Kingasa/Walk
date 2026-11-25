@@ -9,10 +9,13 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/Scenes/OtsukiScene.unity
+    guid: 7c18ef4e99abf1349978543fb79bb69d
+  - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 4082d8b0e30704247b5d3468c1b207b1
   - enabled: 1
-    path: Assets/Scenes/EnchanceScene.unity
+    path: Assets/OtsukiScenes/EnchanceScene.unity
     guid: 98d6734f9bd137b45986c77e8737a743
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

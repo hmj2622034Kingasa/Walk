@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 437078641}
   - component: {fileID: 437078644}
   m_Layer: 5
-  m_Name: "StartButton(\u4EEE)"
+  m_Name: StartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -923,7 +923,7 @@ GameObject:
   - component: {fileID: 661825518}
   - component: {fileID: 661825521}
   m_Layer: 5
-  m_Name: "SelectButton(\u4EEE)"
+  m_Name: EnchanceButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
