@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bowl
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5c0ec5662248a3648b9749f68fee7c3b, type: 3}
+      propertyPath: m_TagString
+      value: wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -75,6 +79,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5c0ec5662248a3648b9749f68fee7c3b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3784066928110794980}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5c0ec5662248a3648b9749f68fee7c3b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3052079745551352853}
   m_SourcePrefab: {fileID: 100100000, guid: 5c0ec5662248a3648b9749f68fee7c3b, type: 3}
 --- !u!1 &709581264209320099 stripped
 GameObject:
@@ -104,3 +111,16 @@ CapsuleCollider:
   m_Height: 0.49748862
   m_Direction: 1
   m_Center: {x: -0.00092608476, y: 0.24874431, z: 0.00000020116566}
+--- !u!114 &3052079745551352853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709581264209320099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a2ba4d41b5ad44db69f40e8080e2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectController
+  player: {fileID: 0}

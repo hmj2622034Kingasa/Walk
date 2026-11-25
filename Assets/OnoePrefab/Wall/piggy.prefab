@@ -66,7 +66,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 54935c7d251f53845903edc7fb6c995c, type: 3}
       propertyPath: m_Name
-      value: piggy_bank
+      value: piggy
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 54935c7d251f53845903edc7fb6c995c, type: 3}
+      propertyPath: m_TagString
+      value: wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -75,6 +79,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 54935c7d251f53845903edc7fb6c995c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7015490129161164577}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 54935c7d251f53845903edc7fb6c995c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8395244759082477162}
   m_SourcePrefab: {fileID: 100100000, guid: 54935c7d251f53845903edc7fb6c995c, type: 3}
 --- !u!1 &9138458137710175262 stripped
 GameObject:
@@ -102,3 +109,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.38321194, y: 0.45891657, z: 0.5660065}
   m_Center: {x: 0, y: 0.22842668, z: 0.0017640889}
+--- !u!114 &8395244759082477162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9138458137710175262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a2ba4d41b5ad44db69f40e8080e2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectController
+  player: {fileID: 0}

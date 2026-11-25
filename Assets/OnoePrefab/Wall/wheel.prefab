@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wheel
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e1487291aad796342832877ee6847595, type: 3}
+      propertyPath: m_TagString
+      value: wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -75,6 +79,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e1487291aad796342832877ee6847595, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4947733760006129221}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e1487291aad796342832877ee6847595, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4719198017556573104}
   m_SourcePrefab: {fileID: 100100000, guid: e1487291aad796342832877ee6847595, type: 3}
 --- !u!1 &6395996419098058476 stripped
 GameObject:
@@ -102,3 +109,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.48, y: 0.48, z: 0.3}
   m_Center: {x: -0.00063613075, y: 0.2508933, z: 0.00000011175874}
+--- !u!114 &4719198017556573104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6395996419098058476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a2ba4d41b5ad44db69f40e8080e2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectController
+  player: {fileID: 0}
