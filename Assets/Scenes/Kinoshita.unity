@@ -299,13 +299,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Surveillance
   Caution: {fileID: 652228621}
-  CautionImage: {fileID: 652228623}
   Warning: {fileID: 1146259509}
+  CautionImage: {fileID: 652228623}
   interval: 5
-  caution: 12
-  flashSpeed: 4
   warning: 5
+  flashCount: 4
+  flashSpeed: 4
+  alphaMax: 0.8
   watch: 0
+  alphaUp: 1
 --- !u!4 &597292611
 Transform:
   m_ObjectHideFlags: 0
@@ -413,7 +415,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &652228622
 RectTransform:
   m_ObjectHideFlags: 0
@@ -446,7 +448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9635534, b: 0, a: 0.20392157}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.53333336}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
