@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ufo
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3913451d23b9f634abdc35e52cafe194, type: 3}
+      propertyPath: m_TagString
+      value: wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -75,6 +79,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3913451d23b9f634abdc35e52cafe194, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8132054236608203288}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3913451d23b9f634abdc35e52cafe194, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6106988233499409390}
   m_SourcePrefab: {fileID: 100100000, guid: 3913451d23b9f634abdc35e52cafe194, type: 3}
 --- !u!1 &230034558292148109 stripped
 GameObject:
@@ -104,3 +111,16 @@ CapsuleCollider:
   m_Height: 0.27880177
   m_Direction: 1
   m_Center: {x: -0.030938884, y: 0.13477151, z: -0.05118354}
+--- !u!114 &6106988233499409390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230034558292148109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a2ba4d41b5ad44db69f40e8080e2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectController
+  player: {fileID: 0}

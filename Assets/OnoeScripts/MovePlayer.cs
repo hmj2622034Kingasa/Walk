@@ -11,6 +11,7 @@ public class MovePlayer : MonoBehaviour
 	[SerializeField] float walkSpeed=10;
 	[SerializeField] float leftRightS=5;
 	[SerializeField] int rotateS=2;
+	[SerializeField] float backPct = 80;
 
 	int playerR = 0;
 
@@ -42,12 +43,12 @@ public class MovePlayer : MonoBehaviour
 		}
 		else if(!left&&!right)animator.SetBool("isWalking", false);
 
-		//if (back==true&&walk==false)	// Œã‚ë•à‚«
-		//{
-		//	rigid.AddForce(-Vector3.forward * backPct*(walkSpeed/100), ForceMode.Force);
-		//	animator.SetBool("isBack",true);
-		//}
-		//else animator.SetBool("isBack", false);
+		if (back==true&&walk==false&&left==false&&right==false)	// Œã‚ë•à‚«
+		{
+			rigid.AddForce(-Vector3.forward * backPct*(walkSpeed/100), ForceMode.Force);
+			animator.SetBool("isBack",true);
+		}
+		else animator.SetBool("isBack", false);
 
 		transform.rotation = Quaternion.Euler(0, playerR, 0);
 
@@ -61,8 +62,8 @@ public class MovePlayer : MonoBehaviour
 				playerR = 0;
 			}
 			else
-			{
-				animator.SetBool("isWalking", true);
+			{	animator.SetBool("isWalking", true);
+				if (right) animator.SetBool("isWalking", false);
 				if (right && playerR < 0) playerR += rotateS;
 				else if (playerR > -90) playerR -= rotateS;
 				else rigid.AddForce(Vector3.left * walkSpeed, ForceMode.Force);
@@ -85,8 +86,9 @@ public class MovePlayer : MonoBehaviour
 				playerR = 0;
 			}
 			else
-			{
+			{ 
 				animator.SetBool("isWalking", true);
+				if (left) animator.SetBool("isWalking", false);
 				if (left && playerR > 0)playerR -= rotateS;
 				else if (playerR < 90) playerR += rotateS;
 				else rigid.AddForce(Vector3.right * walkSpeed, ForceMode.Force);
