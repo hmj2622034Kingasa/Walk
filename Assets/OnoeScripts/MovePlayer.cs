@@ -12,33 +12,63 @@ public class MovePlayer : MonoBehaviour
 	[SerializeField] float leftRightS=5;
 	[SerializeField] int rotateS=2;
 	[SerializeField] float backPct = 80;
+	[SerializeField] float altitude;
 
 	int playerR = 0;
+
+	int speedLv;
+	int HpLv;
 
 	bool walk;
 	bool left;
 	bool right;
 	bool back;
 
+	[SerializeField]bool hide = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 		Application.targetFrameRate = 60;
-	   rigid = GetComponent<Rigidbody>();
+		rigid = GetComponent<Rigidbody>();
 		animator =GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+	private void OnTriggerEnter(Collider other)
+	{
+		if(other.CompareTag("wall"))
+		{
+			hide = true;
+		}
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		if(other.CompareTag("wall"))
+		{
+			hide = false;
+		}
+	}
+
+	public float GetAltitude()
+	{
+		return altitude;
+	}
+
+
+
+	// Update is called once per frame
+	void Update()
     {
 		rigid.linearVelocity = Vector2.zero;
-		mainCamera.transform.position = new Vector3(0, 5, transform.position.z - 3);	// カメラをプレイヤーに追従させる
-		mainFloor.transform.position = new Vector3(0, 0, transform.position.z);	// 床のz座標をプレイヤーと同じように動かす
+		mainCamera.transform.position = new Vector3(0, 5+ altitude, transform.position.z - 3);	// カメラをプレイヤーに追従させる
+		mainFloor.transform.position = new Vector3(0, altitude, transform.position.z);	// 床のz座標をプレイヤーと同じように動かす
 
 		if (walk==true&&playerR==0)	// 通常歩き
 		{
 			if(left||right)rigid.AddForce(Vector3.forward * walkSpeed/1.5f, ForceMode.Force);
-			else rigid.AddForce(Vector3.forward * walkSpeed, ForceMode.Force);
+			else if(transform.position.x>0)rigid.AddForce(Vector3.forward * (walkSpeed*(1.5f-(transform.position.x/5))), ForceMode.Force);
+			else rigid.AddForce(Vector3.forward * (walkSpeed * 1.5f), ForceMode.Force);
 			animator.SetBool("isWalking", true);
 		}
 		else if(!left&&!right)animator.SetBool("isWalking", false);
@@ -107,8 +137,8 @@ public class MovePlayer : MonoBehaviour
 			if (playerR < 0) playerR+=rotateS;
 		}
 
-		if (transform.position.x > 3) transform.position=new Vector3(3,0.18f,transform.position.z);
-		if (transform.position.x < -3) transform.position=new Vector3(-3,0.18f, transform.position.z);
+		if (transform.position.x > 3) transform.position=new Vector3(3,0.18f + altitude, transform.position.z);
+		if (transform.position.x < -3) transform.position=new Vector3(-3,0.18f + altitude, transform.position.z);
 
 		// キー入力確認
 		if (Keyboard.current.wKey.IsPressed()) walk = true;

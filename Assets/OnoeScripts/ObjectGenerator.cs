@@ -18,7 +18,7 @@ public class ObjectGenerator : MonoBehaviour
     {
       if(cloneInterval<player.transform.position.z+50)
 		{
-			GameObject clone = Instantiate(wall[Random.Range(0,wall.Length)],new Vector3(Random.Range(-2.5f,1.5f),0.18f,cloneInterval),Quaternion.Euler(0f, Random.Range(-90,90),0f));
+			GameObject clone = Instantiate(wall[Random.Range(0,wall.Length)],new Vector3(Random.Range(-2.5f,2f),player.GetComponent<MovePlayer>().GetAltitude()+0.18f, cloneInterval),Quaternion.Euler(0f, Random.Range(-180,180),0f));
 			clone.GetComponent<ObjectController>().SetPlayer(player);
 			cloneInterval += Random.Range(5,25);
 		}
